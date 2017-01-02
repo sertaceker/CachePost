@@ -37,7 +37,7 @@ namespace CachePostRest
         {
             services.AddDbContext<MyIdentityDbContext>(options =>
                                                         options.UseNpgsql(Configuration.GetConnectionString
-                                                        ("DefaultConnection")));
+                                                        ("DefaultConnection") ?? "SERVER=139.59.156.137; Database=postgres; Username=postgres; Password=495Dab"));
 
             services.AddIdentity<MyIdentityUser, MyIdentityRole>()
                 .AddEntityFrameworkStores<MyIdentityDbContext>()
